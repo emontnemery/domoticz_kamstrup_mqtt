@@ -643,7 +643,7 @@ class BasePlugin:
                     else:
                         Domoticz.Log("Unknown response:")
                         Domoticz.Log("b: " + ''.join('{:02x} '.format(x) for x in b))
-                if (self.readQueue[self.getUnit(device)]):
+                if (self.getUnit(device) in self.readQueue and self.readQueue[self.getUnit(device)]):
                     # Request next register
                     reg = self.readQueue[self.getUnit(device)].pop()
                     self.getRegister(device, reg)
